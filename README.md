@@ -1,4 +1,4 @@
-# News Dose
+# News Dose Aggregator
 
 News Dose is a Python-based news aggregation project that scrapes headlines from multiple sources, stores structured data in PostgreSQL, indexes semantic vectors in ChromaDB, and serves results through a FastAPI backend with a Streamlit frontend.
 
@@ -24,26 +24,27 @@ News Dose is a Python-based news aggregation project that scrapes headlines from
 
 ## Project Structure
 
-├── run_scrapers.py        # Main pipeline runner
-├── api.py                 # FastAPI application and endpoints
-├── app.py                 # Streamlit frontend
-├── config.py              # Central configuration and environment variables
+.
+|-- run_scrapers.py # Main pipeline runner
+|-- api.py # FastAPI application and endpoints
+|-- app.py # Streamlit frontend
+|-- config.py # Central configuration and environment variables
 
-├── scraper/               # Source-specific scrapers
-│   ├── bbc.py
-│   ├── cnn.py
-│   └── guardian.py
+|-- scraper/ # Source-specific scrapers
+| |-- bbc.py
+| |-- cnn.py
+| `-- guardian.py
 
-├── data/
-│   ├── clean_data.py      # Cleans raw CSV files
-│   ├── insert_data.py     # Inserts into Postgres & Chroma, builds cluster cache
-│   ├── db_setup.py        # Ensures database schema exists
-│   │
-│   ├── raw/               # Raw scraped output
-│   ├── cleaned/           # Cleaned CSV output
-│   └── clustered_cache.json  # Cached cluster groups used by API
+|-- data/
+| |-- clean_data.py # Cleans raw CSV files
+| |-- insert_data.py # Inserts into Postgres & Chroma, builds cluster cache
+| |-- db_setup.py # Ensures database schema exists
+| |
+| |-- raw/ # Raw scraped output
+| |-- cleaned/ # Cleaned CSV output
+| `-- clustered_cache.json # Cached cluster groups used by API
 
-├── chroma_db/             # Local Chroma persistence directory
+`-- chroma_db/ # Local Chroma persistence directory
 
 ## How It Works
 
@@ -90,7 +91,6 @@ Notes:
 
 - `API_KEY` is required only for `/summarize`
 - Default DB values are also defined in `config.py`
-
 
 ## Running the Project
 
@@ -140,4 +140,3 @@ Interpretation:
 
 - Semantic endpoint computes `similarity = 1 - distance` and filters by similarity threshold
 - Clustering keeps candidates where distance is below cluster threshold
-
