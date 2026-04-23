@@ -24,28 +24,28 @@ News Dose is a Python-based news aggregation project that scrapes headlines from
 
 ## Project Structure
 
-.
-|-- run_scrapers.py # Main pipeline runner
-|-- api.py # FastAPI application and endpoints
-|-- app.py # Streamlit frontend
-|-- config.py # Central configuration and environment variables
-
-|-- scraper/ # Source-specific scrapers
-| |-- bbc.py
-| |-- cnn.py
-| `-- guardian.py
-
-|-- data/
-| |-- clean_data.py # Cleans raw CSV files
-| |-- insert_data.py # Inserts into Postgres & Chroma, builds cluster cache
-| |-- db_setup.py # Ensures database schema exists
-| |
-| |-- raw/ # Raw scraped output
-| |-- cleaned/ # Cleaned CSV output
-| `-- clustered_cache.json # Cached cluster groups used by API
-
-`-- chroma_db/ # Local Chroma persistence directory
-
+```
+├── run_scrapers.py        # Main pipeline runner
+├── api.py                 # FastAPI application and endpoints
+├── app.py                 # Streamlit frontend
+├── config.py              # Central configuration and environment variable loading
+│
+├── scraper/               # Source-specific scrapers
+│   ├── bbc.py
+│   ├── cnn.py
+│   └── guardian.py
+│
+├── data/
+│   ├── clean_data.py      # Cleans raw CSV files
+│   ├── insert_data.py     # Inserts data into Postgres & Chroma, builds cluster cache
+│   ├── db_setup.py        # Ensures database schema exists
+│   │
+│   ├── raw/               # Raw scraped output
+│   ├── cleaned/           # Cleaned CSV output
+│   └── clustered_cache.json  # Cached cluster groups used by API
+│
+└── chroma_db/             # Local Chroma persistence directory
+```
 ## How It Works
 
 ### Ingestion Pipeline
