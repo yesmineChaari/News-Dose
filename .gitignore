@@ -1,0 +1,11 @@
+# Generated dataset files
+data/raw/
+data/cleaned/
+data/clustered_cache.json
+
+# Local Chroma vector store
+chroma_db/
+
+.env
+venv/
+__pycache__/
